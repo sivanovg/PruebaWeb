@@ -6,16 +6,16 @@
     $(document).ready(function () {
       console.log('document loaded');
     });
-
     $(window).on("load", function () {
       console.log('window loaded');
     });
   </script>
   <meta charset="UTF-8">
-  <title>miapp01, running on Heroku</title>
+  <title>miapp01, running on Heroku, open PR</title>
 </head>
 <body>
-<h1>miapp01 Sample Library</h1>
+<h1>Miapp01 Sample Library</h1>
+<h4>My name is <span id="greeting"></span></h4>
 <div id="library">
   <h3>Users</h3>
   <div id="users">
@@ -37,5 +37,53 @@
 <div id="search">
   <h3>Search</h3>
 </div>
+
+<div>
+  <h4 style="color: red;">-------- Test Results --------</h4>
+  <ul id="results">
+  </ul>
+</div>
+
+<!-- ========================= BUSINESS LOGIC =====================-->
+<script>
+  function changeNameToUppercase(name) {
+    return name.toUpperCase();
+  }
+  function greeting(name) {
+    var todaysDate = new Date();
+    var greetingString = changeNameToUppercase(name) +
+          ' ' +
+          todaysDate.getUTCMonth() +
+          '/' +
+          todaysDate.getUTCDay() +
+          '/' +
+          todaysDate.getFullYear();
+    return greetingString;
+  }
+  $('#greeting').text(greeting('Pedro'));
+</script>
+
+<!-- ======================== UNIT-TESTS LOGIC ==================== -->
+
+<script>
+  results = document.getElementById('results');
+  function createOneResult(msg, r) {
+    var li = document.createElement('LI');
+    li.innerText = msg + ', ' + r ;
+    return li;
+  }
+  function testResults(msg, r) {
+    results.appendChild(createOneResult(msg, r ? 'Passed': 'Failure'))
+  }
+</script>
+
+<script>
+  function testTheTruth() {
+    testResults('1 is equal to 1', 1 === 1);
+  }
+  (function() {
+    testTheTruth();
+  })()
+</script>
 </body>
 </html>
