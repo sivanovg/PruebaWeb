@@ -60,7 +60,7 @@
           todaysDate.getFullYear();
     return greetingString;
   }
-  $('#greeting').text(greeting('Pedro'));
+  $('#greeting').text(greeting('Sergio'));
 </script>
 
 <!-- ======================== UNIT-TESTS LOGIC ==================== -->
@@ -80,6 +80,10 @@
 <script>
   function testTheTruth() {
     testResults('1 is equal to 1', 1 === 1);
+	 testResults('2 is not equal to 1', 2 !== 1);
+	 	 testResults('3 is not equal to 1', 2 !== 1);
+	 testResults('4 Esta en Mayusculas', changeNameToUppercase('sergio') === 'SERGIO');
+	 
   }
   (function() {
     testTheTruth();
