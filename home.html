@@ -105,9 +105,10 @@
       mapVolumes(volumes);
     }
   });
+  
   function mapVolumes(volumes) {
     console.log('Volumes found = ', volumes.totalItems);
-	var r = volumes.items[0].volumeinfo.title + volumes.items[0].volumeinfo.subtitle;  
+	var r = volumes.items[0].volumeInfo.title + ',' + volumes.items[0].volumeInfo.subtitle;  
     console.log('Titulo = ', r);
 
   }
