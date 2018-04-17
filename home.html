@@ -86,16 +86,28 @@
 	  testResults('saludo Esta OK', greeting('Sergio') === 'SERGIO 3/1/2018');
 	  testResults('Es 2018 OK', greeting('Sergio').indexOf('2018') > -1);
 	
+
+	var o = {
+	  items: [
+	  { 
+	   volumeInfo: {
+	     title: 'lopez',
+		 subtitle : 'pedro'
+	   }
+	  }
+	  ]
+	};
+
+	
+	testResults('Array OK', mapVolumes(o) === 'lopez, pedro');
 	 
   }
+  
   (function() {
     testTheTruth();
   })()
   
 
-</script>
-
-  <script>
   var googleBooksApi = "https://www.googleapis.com/books/v1/volumes?q=";
   var query = "flowers+inauthor:keyes";
   $.ajax({
@@ -108,7 +120,7 @@
   
   function mapVolumes(volumes) {
     console.log('Volumes found = ', volumes.totalItems);
-	var r = volumes.items[0].volumeInfo.title + ',' + volumes.items[0].volumeInfo.subtitle;  
+	var r = volumes.items[0].volumeInfo.title + ', ' + volumes.items[0].volumeInfo.subtitle;  
     console.log('Titulo = ', r);
 
   }
