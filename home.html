@@ -107,8 +107,8 @@
   });
   function mapVolumes(volumes) {
     console.log('Volumes found = ', volumes.totalItems);
-    console.log('Titulo = ', volumes[0].volumeinfo.title);
-	console.log('Subtitulo  = ', volumes[0].volumeinfo.subtitle);
+	var r = volumes.items[0].volumeinfo.title + volumes.items[0].subtitle;  
+    console.log('Titulo = ', r);
 
   }
 </script>
